@@ -1,0 +1,60 @@
+# Deterministic identified model v1 control/allocation parameters.
+controller:
+  position:
+    kp: [2.5, 2.5, 3.4]
+    ki: [0.0, 0.0, 0.0]
+    kd: [0.0, 0.0, 0.0]
+    integral_limit: [0.3, 0.3, 0.3]
+    output_limit: [10.0, 10.0, 100.0]
+    derivative_cutoff_hz: 10.0
+  velocity:
+    kp: [3.5, 3.5, 8.0]
+    ki: [0.12, 0.12, 2.5]
+    kd: [0.08, 0.08, 0.07]
+    integral_limit: [10.0, 10.0, 10.0]
+    output_limit: [1000.0, 1000.0, 1000.0]
+    derivative_cutoff_hz: 10.0
+  attitude:
+    kp: [10.0, 10.0, 4.5]
+    ki: [0.0, 0.0, 0.0]
+    kd: [0.05, 0.05, 0.01]
+    integral_limit: [0.2, 0.2, 0.2]
+    output_limit: [3.84, 3.84, 3.49]
+    derivative_cutoff_hz: 15.0
+  rate:
+    kp: [2.2, 2.2, 1.6]
+    ki: [0.0, 0.0, 0.0]
+    kd: [0.04, 0.04, 0.02]
+    integral_limit: [0.4, 0.4, 0.4]
+    output_limit: [4.0, 4.0, 3.0]
+    derivative_cutoff_hz: 20.0
+  force_limit: [30.0, 30.0, 100.0]
+  torque_limit: [5.0, 5.0, 4.0]
+  gyroscopic_feedforward: true
+  max_sample_gap_s: 0.1
+  adaptation_min_height: 0.4
+dob:
+  enabled: true
+  compensate: true
+  cutoff_rad_s: 2.0
+  estimate_limit: [3.0, 3.0, 3.0]
+moce:
+  enabled: false
+  estimate_z: false
+  force_cutoff_rad_s: 2.0
+  gamma: [7.0e-6, 7.0e-6, 2.2e-4]
+  output_tau_s: 0.15
+  offset_limit: [0.15, 0.15, 0.15]
+  rate_limit: [0.02, 0.02, 0.02]
+  min_force: 5.0
+  min_horizontal_force: 0.1
+allocator:
+  yaw_split_cutoff_hz: 0.5
+  yaw_reaction_limit: 0.6
+  regularization: 0.00000001
+motor:
+  # With common effectiveness disabled, these are the legacy absolute scales.
+  thrust_scale: [0.688, 0.688, 0.688, 0.688]
+servo:
+  kp: 3.4
+  kd: 0.1

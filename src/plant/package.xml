@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>plant</name><version>0.1.0</version>
+  <description>Native C++ MuJoCo plant and GLFW viewer</description>
+  <maintainer email="ryung9514@naver.com">ryung</maintainer><license>MIT</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>rclcpp</depend><depend>ament_index_cpp</depend>
+  <depend>palletrone_interfaces</depend><depend>eigen</depend><depend>yaml-cpp</depend>
+  <depend>libglfw3-dev</depend><depend>libgl-dev</depend>
+  <test_depend>palletrone_controller</test_depend>
+  <export><build_type>ament_cmake</build_type></export>
+</package>
