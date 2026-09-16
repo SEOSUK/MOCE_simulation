@@ -30,3 +30,7 @@ src/palletrone_interfaces/bag/*.csv
 
 # Monte Carlo trajectories are large; summary tables remain tracked.
 src/palletrone_interfaces/bag/monte/logs/**/*.csv
+
+# Simulink generated cache (model and source remain tracked)
+slprj/
+*.slxc

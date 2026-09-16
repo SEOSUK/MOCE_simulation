@@ -372,3 +372,11 @@ v6  CRN Monte Carlo robustness validation
 
 The result is a reproducible, flight-data-calibrated simulation workflow for
 Monte Carlo robustness validation under the modeled stochastic conditions.
+
+## Simulink V2 research model
+
+`src/V2.slx` provides the cascaded position/velocity and attitude/rate controller,
+torque-domain DOB, commanded-force MOCE, separate actuator and rigid-body dynamics,
+and measured-state feedback. `src/V1.slx` is retained unchanged as a reference.
+See [the Simulink guide](src/simulink_config/README.md) for frame conversion,
+editable parameters, rebuilding, and automated validation.

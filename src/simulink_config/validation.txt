@@ -1,0 +1,15 @@
+MATLAB 24.2.0.2923080 (R2024b) Update 6
+Generated: 2026-09-17 04:23:49
+Structural, numerical-kernel, mode-switch, payload, and deterministic-noise checks PASS.
+default_hover: 10.00 s, max |position error| 1.00122 m, final error 0.000930911 m, max |body rate| 0.211515 rad/s
+position.velocity_ff.enable=0: 1.00 s, max |position error| 1.00122 m, final error 0.0260094 m, max |body rate| 0.211515 rad/s
+position.velocity_ff.enable=1: 1.00 s, max |position error| 1.00122 m, final error 0.0260094 m, max |body rate| 0.211515 rad/s
+velocity.gravity_comp.enable=0: 1.00 s, max |position error| 1.00122 m, final error 0.302239 m, max |body rate| 0.211356 rad/s
+velocity.gravity_comp.enable=1: 1.00 s, max |position error| 1.00122 m, final error 0.0260094 m, max |body rate| 0.211515 rad/s
+dob.enable=0: 1.00 s, max |position error| 1.00122 m, final error 0.0251801 m, max |body rate| 0.215092 rad/s
+dob.enable=1: 1.00 s, max |position error| 1.00122 m, final error 0.0260094 m, max |body rate| 0.211515 rad/s
+moce.enable=0: 1.00 s, max |position error| 1.00122 m, final error 0.0260094 m, max |body rate| 0.211515 rad/s
+moce.enable=1: 1.00 s, max |position error| 1.00122 m, final error 0.0260262 m, max |body rate| 0.211515 rad/s
+rate.gyroscopic_ff.enable=0: 1.00 s, max |position error| 1.00122 m, final error 0.0260094 m, max |body rate| 0.211515 rad/s
+rate.gyroscopic_ff.enable=1: 1.00 s, max |position error| 1.00122 m, final error 0.0260094 m, max |body rate| 0.211515 rad/s
+payload_and_excitation: 3.00 s, max |position error| 1.01785 m, final error 0.0116784 m, max |body rate| 0.302488 rad/s
