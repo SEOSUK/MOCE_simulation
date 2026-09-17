@@ -11,24 +11,27 @@ c.rate = pid([2.2 2.2 1.6], [0 0 0], [.04 .04 .02], [.4 .4 .4], [4 4 3], 20);
 c.rate.gyroscopic_ff.enable = true;
 c.force_limit = [30 30 100];
 c.torque_limit = [5 5 4];
-c.nominal.mass = 6;
-c.nominal.gravity = 9.80665;
-c.nominal.inertia = diag([.2 .2 .2]);
-% V1 geometry transformed by diag([1 -1 -1]); motor indices unchanged.
-c.nominal.geometry.arm_length = .4;
-c.nominal.geometry.rotor_z = -.015;
-c.nominal.geometry.radial_xy = [1 -1 -1 1; 1 1 -1 -1]/sqrt(2);
+c.nominal.mass = 4.7; % independent of the true payload-derived mass
+c.nominal.gravity = 9.81;
+c.nominal.inertia = diag([.0768 .0871 .113]);
+% MuJoCo ModelConfig geometry, indices 1..4 and positive servo sense.
+c.nominal.geometry.arm_xy = .148492;
+c.nominal.geometry.rotor_z = .07;
+c.nominal.geometry.servo_pivot_offset = .075;
+c.nominal.geometry.radial_xy = [1 -1 -1 1; 1 1 -1 -1];
 c.nominal.geometry.tangent = [1 1 -1 -1; -1 1 1 -1; 0 0 0 0]/sqrt(2);
-c.nominal.geometry.spin = [-1 1 -1 1]; % reaction torque relative to thrust
-% Independent axial and lateral reaction coefficients, both .01 in V1.
-c.nominal.propeller.b_over_k = .01; % lateral reaction torque / lateral thrust
-c.nominal.propeller.reaction_torque_ratio = .01; % axial reaction torque / axial thrust
-c.nominal.propeller.max_thrust = 200;
-c.nominal.servo_limit = 1;
+c.nominal.geometry.spin = [1 -1 1 -1]; % MuJoCo reaction torque relative to thrust
+% Equal defaults reproduce the single MuJoCo reaction ratio.
+c.nominal.propeller.b_over_k = .02; % lateral reaction torque / lateral thrust
+c.nominal.propeller.reaction_torque_ratio = .02; % axial reaction torque / axial thrust
+c.nominal.propeller.thrust_coefficient = .02; % N/(rad/s)^2; thrust-domain allocator
+c.nominal.propeller.max_thrust = 50;
+c.nominal.servo_limit = .7;
 c.allocator.yaw_split_cutoff_hz = .5;
 c.allocator.yaw_reaction_limit = .6;
 c.allocator.regularization = 1e-8;
 c.dob.enable = true;
+c.dob.compensate = true;
 c.dob.cutoff_rad_s = 2;
 c.dob.estimate_limit = [3 3 3];
 c.moce.enable = false;

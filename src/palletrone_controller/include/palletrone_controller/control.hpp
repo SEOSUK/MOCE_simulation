@@ -147,6 +147,7 @@ struct State {
            omega.allFinite() && servo.allFinite();
   }
 };
+// Acceleration is retained as trajectory metadata/API compatibility, never control feed-forward.
 struct Reference {
   Vec3 position = Vec3::Zero(), velocity = Vec3::Zero(), acceleration = Vec3::Zero(),
        rpy = Vec3::Zero(), rate = Vec3::Zero();
@@ -203,7 +204,7 @@ class CascadeController {
     ControlOutput out;
     out.velocity_sp = position_.update(ref.position - s.position, s.velocity, dt, ref.velocity);
     const Vec3 acc = velocity_.update(out.velocity_sp - s.velocity,
-                                      (s.velocity - previous_.velocity) / dt, dt, ref.acceleration);
+                                      (s.velocity - previous_.velocity) / dt, dt, Vec3::Zero());
     const Mat3 r = rotation(s.rpy), rd = rotation(ref.rpy);
     Vec3 f_world = m_.mass * (acc + Vec3(0, 0, m_.gravity));
     f_world.z() = std::max(0.0, f_world.z());

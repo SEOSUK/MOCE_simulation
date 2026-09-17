@@ -1,15 +1,19 @@
 MATLAB 24.2.0.2923080 (R2024b) Update 6
-Generated: 2026-09-17 04:23:49
-Structural, numerical-kernel, mode-switch, payload, and deterministic-noise checks PASS.
-default_hover: 10.00 s, max |position error| 1.00122 m, final error 0.000930911 m, max |body rate| 0.211515 rad/s
-position.velocity_ff.enable=0: 1.00 s, max |position error| 1.00122 m, final error 0.0260094 m, max |body rate| 0.211515 rad/s
-position.velocity_ff.enable=1: 1.00 s, max |position error| 1.00122 m, final error 0.0260094 m, max |body rate| 0.211515 rad/s
-velocity.gravity_comp.enable=0: 1.00 s, max |position error| 1.00122 m, final error 0.302239 m, max |body rate| 0.211356 rad/s
-velocity.gravity_comp.enable=1: 1.00 s, max |position error| 1.00122 m, final error 0.0260094 m, max |body rate| 0.211515 rad/s
-dob.enable=0: 1.00 s, max |position error| 1.00122 m, final error 0.0251801 m, max |body rate| 0.215092 rad/s
-dob.enable=1: 1.00 s, max |position error| 1.00122 m, final error 0.0260094 m, max |body rate| 0.211515 rad/s
-moce.enable=0: 1.00 s, max |position error| 1.00122 m, final error 0.0260094 m, max |body rate| 0.211515 rad/s
-moce.enable=1: 1.00 s, max |position error| 1.00122 m, final error 0.0260262 m, max |body rate| 0.211515 rad/s
-rate.gyroscopic_ff.enable=0: 1.00 s, max |position error| 1.00122 m, final error 0.0260094 m, max |body rate| 0.211515 rad/s
-rate.gyroscopic_ff.enable=1: 1.00 s, max |position error| 1.00122 m, final error 0.0260094 m, max |body rate| 0.211515 rad/s
-payload_and_excitation: 3.00 s, max |position error| 1.01785 m, final error 0.0116784 m, max |body rate| 0.302488 rad/s
+Generated: 2026-09-17 17:55:00
+Native PID structure, Scope wiring, logging, equation, all DOB modes, MOCE routing, payload, and noise checks PASS.
+default_hover: 10.00 s, max |position error| 0.863023 m, final error 0.00809645 m, max |body rate| 1.05343 rad/s
+position.velocity_ff.enable=0: 1.00 s, max |position error| 0.863023 m, final error 0.123899 m, max |body rate| 1.05343 rad/s
+position.velocity_ff.enable=1: 1.00 s, max |position error| 0.863023 m, final error 0.123899 m, max |body rate| 1.05343 rad/s
+velocity.gravity_comp.enable=0: 1.00 s, max |position error| 0.863023 m, final error 0.371641 m, max |body rate| 0.713189 rad/s
+velocity.gravity_comp.enable=1: 1.00 s, max |position error| 0.863023 m, final error 0.123899 m, max |body rate| 1.05343 rad/s
+dob.enable=0: 1.00 s, max |position error| 0.863023 m, final error 0.229874 m, max |body rate| 0.878586 rad/s
+dob.enable=1: 1.00 s, max |position error| 0.863023 m, final error 0.123899 m, max |body rate| 1.05343 rad/s
+moce.enable=0: 1.00 s, max |position error| 0.863023 m, final error 0.123899 m, max |body rate| 1.05343 rad/s
+moce.enable=1: 1.00 s, max |position error| 0.863023 m, final error 0.123511 m, max |body rate| 1.06125 rad/s
+rate.gyroscopic_ff.enable=0: 1.00 s, max |position error| 0.863023 m, final error 0.124095 m, max |body rate| 1.0551 rad/s
+rate.gyroscopic_ff.enable=1: 1.00 s, max |position error| 0.863023 m, final error 0.123899 m, max |body rate| 1.05343 rad/s
+dob_mode_0_0: 2.00 s, max |position error| 0.863023 m, final error 0.0814632 m, max |body rate| 0.878586 rad/s
+dob_mode_0_1: 2.00 s, max |position error| 0.863023 m, final error 0.0814632 m, max |body rate| 0.878586 rad/s
+dob_mode_1_0: 2.00 s, max |position error| 0.863023 m, final error 0.0852306 m, max |body rate| 0.88937 rad/s
+dob_mode_1_1: 2.00 s, max |position error| 0.863023 m, final error 0.0896753 m, max |body rate| 1.06125 rad/s
+payload_and_excitation: 3.00 s, max |position error| 0.882099 m, final error 0.0545688 m, max |body rate| 0.345239 rad/s

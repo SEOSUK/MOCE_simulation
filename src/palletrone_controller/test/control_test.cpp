@@ -91,6 +91,24 @@ int main(int argc, char** argv) {
     const auto feedforward_out = feedforward_controller.update(state, feedforward_ref);
     check((feedforward_out.velocity_sp - feedforward_ref.velocity).norm() < 1e-12,
           "Analytic trajectory velocity is added to the position-loop velocity setpoint");
+    // Compare independent controller histories, including the velocity integral
+    // and filtered measured derivative. Acceleration metadata must have no effect.
+    CascadeController no_acc_ff(c, m), arbitrary_acc_ff(c, m);
+    for (int i = 0; i < 400; ++i) {
+      State moving;
+      moving.time = 0.0025 * i;
+      moving.position = Vec3(0.01 * std::sin(moving.time), 0, 2);
+      moving.velocity = Vec3(0.01 * std::cos(moving.time), 0.02, -0.01);
+      Reference a;
+      a.position = Vec3(0.02, -0.03, 2.02);
+      a.velocity = Vec3(0.03, -0.02, 0.01);
+      Reference b = a;
+      b.acceleration = Vec3(3 * std::sin(i + 0.5), -4 * std::cos(i), 2);
+      const auto x = no_acc_ff.update(moving, a), y = arbitrary_acc_ff.update(moving, b);
+      check((x.force - y.force).norm() < 1e-12 &&
+                (x.velocity_sp - y.velocity_sp).norm() < 1e-12,
+            "Reference acceleration is metadata and cannot affect force output");
+    }
     state.time = 1;
     const auto reset = controller.update(state, ref);
     check(reset.force.allFinite() && reset.torque.allFinite(), "Sample-gap reset");
@@ -203,7 +221,7 @@ int main(int argc, char** argv) {
               finish.velocity.isZero() && finish.acceleration.isZero(),
           "Automated experiment returns to hover after 60 seconds of Lissajous");
     std::cout << "PASS: PID cascade, Q filter, DOB rejection, MOCE XYZ/gating, CoM allocation, "
-                 "actuator bounds, keyboard command, Lissajous trajectory\n";
+                 "actuator bounds, acceleration-FF exclusion, keyboard command, Lissajous trajectory\n";
   } catch (const std::exception& e) {
     std::cerr << "FAIL: " << e.what() << '\n';
     return 1;

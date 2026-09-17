@@ -10,7 +10,7 @@ namespace palletrone {
 struct CommandReference {
   Vec3 position = Vec3::Zero();
   Vec3 velocity = Vec3::Zero();
-  Vec3 acceleration = Vec3::Zero();
+  Vec3 acceleration = Vec3::Zero();  // trajectory metadata; not controller feed-forward
   Vec3 rpy = Vec3::Zero();
   Vec3 rate = Vec3::Zero();
 };
